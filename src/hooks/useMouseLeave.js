@@ -6,11 +6,12 @@ const useMouseLeave = (onMouseLeave) => {
   }
 
   useEffect(() => {
-    if(typeof onMouseLeave !== 'function') {
+    if (typeof onMouseLeave !== 'function') {
       return
     }
 
     document.addEventListener('mouseleave', handle)
+
     return () => document.removeEventListener('mouseleave', handle)
   }, [])
 }
