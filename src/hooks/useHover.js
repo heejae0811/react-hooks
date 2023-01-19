@@ -4,12 +4,12 @@ const useHover = (onHover) => {
   const element = useRef()
 
   useEffect(() => {
-    if(element.current) {
+    if (element.current) {
       element.current.addEventListener('mouseenter', onHover)
     }
 
     return () => {
-      if(element.current) {
+      if (element.current) {
         element.current.removeEventListener('mouseenter', onHover)
       }
     }

@@ -10,6 +10,7 @@ const useInput = (initialValue, validator) => {
 
     let willUpdate = true
 
+    // typeof: 자료형(number, string, boolean..)을 나타내는 문자열을 반환한다.
     if (typeof validator === 'function') {
       willUpdate = validator(value)
     }

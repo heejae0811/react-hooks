@@ -4,6 +4,7 @@ import useTitle from './hooks/useTitle'
 import useClick from './hooks/useClick'
 import useHover from './hooks/useHover'
 import useConfirm from './hooks/useConfirm'
+import usePrevent from './hooks/usePrevent'
 import './App.css'
 
 const content = [
@@ -40,6 +41,9 @@ function App() {
   const cancleessage = () => alert('Cancle')
   const confirmAlert = useConfirm('Are you sure?', deleteMessage, cancleessage)
 
+  // usePrevent
+  const {enablePrevent, disablePrevent} = usePrevent()
+
   return (
     <div className="app">
       <section>
@@ -66,6 +70,12 @@ function App() {
       <section>
         <h3>useConfirm</h3>
         <button onClick={confirmAlert}>Delete</button>
+      </section>
+
+      <section>
+        <h3>usePrevent</h3>
+        <button onClick={enablePrevent}>Protect</button>
+        <button onClick={disablePrevent}>Unprotect</button>
       </section>
     </div>
   )
