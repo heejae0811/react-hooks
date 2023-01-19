@@ -5,6 +5,7 @@ import useClick from './hooks/useClick'
 import useHover from './hooks/useHover'
 import useConfirm from './hooks/useConfirm'
 import usePrevent from './hooks/usePrevent'
+import useMouseLeave from './hooks/useMouseLeave'
 import './App.css'
 
 const content = [
@@ -44,6 +45,10 @@ function App() {
   // usePrevent
   const {enablePrevent, disablePrevent} = usePrevent()
 
+  // useMouseLeave
+  const begForLife = () => console.log("mouse leave");
+  useMouseLeave(begForLife)
+
   return (
     <div className="app">
       <section>
@@ -76,6 +81,11 @@ function App() {
         <h3>usePrevent</h3>
         <button onClick={enablePrevent}>Protect</button>
         <button onClick={disablePrevent}>Unprotect</button>
+      </section>
+      
+      <section>
+        <h3>useMouseLeave</h3>
+        <p>콘솔창 확인</p>
       </section>
     </div>
   )
