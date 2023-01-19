@@ -2,16 +2,17 @@ import useInput from './hooks/useInput'
 import useTab from './hooks/useTab'
 import useTitle from './hooks/useTitle'
 import useClick from './hooks/useClick'
+import useHover from './hooks/useHover'
 import './App.css'
 
 const content = [
   {
-    tab: 'section 01',
-    content: 'content 01'
+    tab: 'section1',
+    content: 'content 1'
   },
   {
-    tab: 'section 02',
-    content: 'content 02'
+    tab: 'section2',
+    content: 'content 2'
   }
 ]
 
@@ -27,9 +28,11 @@ function App() {
   const titleUpdater = useTitle('Loading..')
   setTimeout(() => titleUpdater('React Hooks'), 2000)
 
-  // useClick
-  const alertOpen = () => alert('Click Success.')
-  const title = useClick(alertOpen)
+  // useClick, useHover
+  const alertOpen1 = () => alert('Click Success.')
+  const alertOpen2 = () => alert('Hover Success.')
+  const clickButton = useClick(alertOpen1)
+  const hoverButton = useHover(alertOpen2)
 
   return (
     <div className="app">
@@ -49,8 +52,9 @@ function App() {
       </section>
 
       <section>
-        <h3>useClick</h3>
-        <button ref={title}>Click Me!</button>
+        <h3>useClick / useHover</h3>
+        <button ref={clickButton}>Click Me!</button>
+        <button ref={hoverButton}>Hover Me!</button>
       </section>
     </div>
   )
