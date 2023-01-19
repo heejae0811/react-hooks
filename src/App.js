@@ -3,6 +3,7 @@ import useTab from './hooks/useTab'
 import useTitle from './hooks/useTitle'
 import useClick from './hooks/useClick'
 import useHover from './hooks/useHover'
+import useConfirm from './hooks/useConfirm'
 import './App.css'
 
 const content = [
@@ -34,6 +35,11 @@ function App() {
   const clickButton = useClick(alertOpen1)
   const hoverButton = useHover(alertOpen2)
 
+  // useConfirm
+  const deleteMessage = () => alert('Delete')
+  const cancleessage = () => alert('Cancle')
+  const confirmAlert = useConfirm('Are you sure?', deleteMessage, cancleessage)
+
   return (
     <div className="app">
       <section>
@@ -55,6 +61,11 @@ function App() {
         <h3>useClick / useHover</h3>
         <button ref={clickButton}>Click Me!</button>
         <button ref={hoverButton}>Hover Me!</button>
+      </section>
+
+      <section>
+        <h3>useConfirm</h3>
+        <button onClick={confirmAlert}>Delete</button>
       </section>
     </div>
   )

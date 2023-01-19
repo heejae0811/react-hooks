@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 const useTab = (initialTab, allTabs) => {
   const [currentIndex, setCurrentIndex] = useState(initialTab)
