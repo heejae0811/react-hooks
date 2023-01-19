@@ -1,6 +1,7 @@
 import useInput from './hooks/useInput'
 import useTab from './hooks/useTab'
 import useTitle from './hooks/useTitle'
+import useClick from './hooks/useClick'
 import './App.css'
 
 const content = [
@@ -26,13 +27,16 @@ function App() {
   const titleUpdater = useTitle('Loading..')
   setTimeout(() => titleUpdater('React Hooks'), 2000)
 
+  // useClick
+  const alertOpen = () => alert('Click Success.')
+  const title = useClick(alertOpen)
+
   return (
     <div className="app">
       <section>
         <h3>useInput</h3>
-        <input type="text" placeholder="write your name" {...name}/>
+        <input type="text" placeholder="Write your name" {...name}/>
       </section>
-
 
       <section>
         <h3>useTab</h3>
@@ -42,6 +46,11 @@ function App() {
           ))
         }
         <div>{currentIndex.content}</div>
+      </section>
+
+      <section>
+        <h3>useClick</h3>
+        <button ref={title}>Click Me!</button>
       </section>
     </div>
   )
