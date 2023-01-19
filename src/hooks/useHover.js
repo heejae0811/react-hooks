@@ -1,16 +1,16 @@
 import React, {useEffect, useRef} from 'react'
 
-const useHover = (onClick) => {
+const useHover = (onHover) => {
   const element = useRef()
 
   useEffect(() => {
     if(element.current) {
-      element.current.addEventListener('mouseenter', onClick)
+      element.current.addEventListener('mouseenter', onHover)
     }
 
     return () => {
       if(element.current) {
-        element.current.removeEventListener('mouseenter', onClick)
+        element.current.removeEventListener('mouseenter', onHover)
       }
     }
   }, [])
