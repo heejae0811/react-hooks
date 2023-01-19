@@ -1,5 +1,6 @@
 import useInput from './hooks/useInput'
 import useTab from './hooks/useTab'
+import useTitle from './hooks/useTitle'
 import './App.css'
 
 const content = [
@@ -20,6 +21,10 @@ function App() {
 
   // useTab
   const {currentIndex, setCurrentIndex} = useTab(0, content)
+
+  // useTitle
+  const titleUpdater = useTitle('Loading..')
+  setTimeout(() => titleUpdater('React Hooks'), 2000)
 
   return (
     <div className="app">
